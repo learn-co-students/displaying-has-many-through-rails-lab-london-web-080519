@@ -1,0 +1,11 @@
+<h1>Patient Details</h1>
+<h3>Name: <%= @patient.name %></h3>
+
+<h3>Appointments:</h3>
+<% @patient.appointments.each_with_index do |appointment, index| %>
+  <div>
+    <p><%= link_to "Appointment #{index+1}", appointment %></p>
+    <p>Doctor: <%= link_to appointment.doctor.name, appointment.doctor %></p>
+    <p>Date: <%=  appointment.appointment_datetime.strftime("%B %-d, %Y at %k:%M") %></p>
+  </div>
+<% end %>
